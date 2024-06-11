@@ -1,5 +1,10 @@
-import './App.css'
 import { useCounterStore } from './store'
+import { useEffect } from 'react'
+import './App.css'
+
+const setCount = () => {
+  useCounterStore.setState({ count: 1 })
+}
 
 function App() {
 
@@ -15,6 +20,10 @@ function App() {
 const OtherComponent = ({ count }: { count: number }) => {
   const incrementAsync = useCounterStore((state) => state.incrementAsync)
   const decrement = useCounterStore((state) => state.decrement)
+
+  useEffect(() => {
+    setCount()
+  }, [])
 
   return (
     <div>
