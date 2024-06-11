@@ -1,8 +1,9 @@
-import { useState } from 'react'
 import './App.css'
+import { useCounterStore } from './store'
 
 function App() {
-  const [count] = useState(0)
+
+  const count = useCounterStore((state) => state.count)
 
   return (
     <>
